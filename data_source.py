@@ -34,23 +34,21 @@ shiptypes = [
     matching(("Battleship", "战列舰", "战列", "BB"), "Battleship"),
     matching(("Destroyer", "驱逐舰", "驱逐", "DD"), "Destroyer"),
     matching(("Submarine", "潜艇", "SS"), "Submarine"),
-    matching(("Auxiliary", "辅助舰艇", "DD"), "Auxiliary"),
     matching(("AirCarrier", "航空母舰", "航母", "CV"), "AirCarrier"),
 ]
 
 levels = [
-    matching(("1", "1级", "一级", "一"), "1"),
-    matching(("2", "2级", "二级", "二"), "2"),
-    matching(("3", "3级", "三级", "三"), "3"),
-    matching(("4", "4级", "四级", "四"), "4"),
-    matching(("4", "4级", "四级", "四"), "4"),
-    matching(("5", "5级", "五级", "五"), "5"),
-    matching(("6", "6级", "六级", "六"), "6"),
-    matching(("7", "7级", "七级", "七"), "7"),
-    matching(("8", "8级", "八级", "八"), "8"),
-    matching(("9", "9级", "九级", "九"), "9"),
-    matching(("10", "10级", "十级", "十"), "10"),
-    matching(("11", "11级", "十一级", "十一"), "11"),
+    matching(("1", "1级", "一级", "一", "I"), "1"),
+    matching(("2", "2级", "二级", "二", "II"), "2"),
+    matching(("3", "3级", "三级", "三", "III"), "3"),
+    matching(("4", "4级", "四级", "四", "IV"), "4"),
+    matching(("5", "5级", "五级", "五", "V"), "5"),
+    matching(("6", "6级", "六级", "六", "VI"), "6"),
+    matching(("7", "7级", "七级", "七", "VII"), "7"),
+    matching(("8", "8级", "八级", "八", "VIII"), "8"),
+    matching(("9", "9级", "九级", "九", "XI"), "9"),
+    matching(("10", "10级", "十级", "十", "X"), "10"),
+    matching(("11", "11级", "十一级", "十一", "XI"), "11"),
 ]
 
 servers = [
