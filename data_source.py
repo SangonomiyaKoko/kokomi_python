@@ -52,9 +52,9 @@ levels = [
 ]
 
 servers = [
-    matching(("asia", "亚服", "asian"), "asia"),
-    matching(("eu", "欧服", "europe"), "eu"),
-    matching(("na", "美服", "NorthAmerican"), "na"),
-    matching(("ru", "俄服", "Russia"), "ru"),
-    matching(("cn", "国服", "china"), "cn"),
+    matching(("asia", "亚服", "asian", "亚"), "asia"),
+    matching(("eu", "欧服", "europe", "欧"), "eu"),
+    matching(("na", "美服", "NorthAmerican", "美"), "na"),
+    matching(("ru", "俄服", "Russia", "俄"), "ru"),
+    matching(("cn", "国服", "china", "国"), "cn"),
 ]

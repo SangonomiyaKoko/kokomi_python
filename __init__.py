@@ -4,7 +4,7 @@ import traceback
 from pathlib import Path
 
 from loguru import logger
-from nonebot import get_driver, on_command
+from nonebot import get_driver, on_startswith
 from nonebot.adapters.onebot.v11 import (
     ActionFailed,
     Bot,
@@ -16,7 +16,7 @@ from nonebot.log import logger
 from nonebot.params import CommandArg
 
 
-from .command_select import select_command
+from command_select import select_command
 
 __plugin_name__ = "nonebot_plugin_kokomi"
 __plugin_des__ = "战舰世界水表机器人"
@@ -25,7 +25,7 @@ __plugin_author__ = "Maoyu <a20110123@163.com>"
 __plugin_version__ = "3.1.0"
 dir_path = Path(__file__).parent
 
-bot = on_command("wws", block=False, aliases={"WWS"}, priority=10)
+bot = on_startswith("wws", block=False, aliases={"WWS"}, priority=10)
 driver = get_driver()
 
 
@@ -33,6 +33,7 @@ driver = get_driver()
 async def main(bot: Bot, ev: MessageEvent, matchmsg: Message = CommandArg()):
     try:
         msg = ""
+        qq_id = ev.user_id
         replace_name = None
         searchtag = html.unescape(str(matchmsg)).strip()
         match = re.search(r"(\(|（)(.*?)(\)|）)", searchtag)
@@ -41,9 +42,7 @@ async def main(bot: Bot, ev: MessageEvent, matchmsg: Message = CommandArg()):
             search_list = searchtag.replace(match.group(0), "").split()
         else:
             search_list = searchtag.split()
-        command, search_list = await select_command(search_list)
-        if replace_name:
-            search_list.append(replace_name)
+        command, search_list, qq_id = await select_command(search_list, qq_id)
         msg = await command(search_list, bot, ev)
         if isinstance(msg, str):
             await bot.send(ev, msg)
@@ -62,3 +61,7 @@ async def main(bot: Bot, ev: MessageEvent, matchmsg: Message = CommandArg()):
     except Exception:
         logger.error(traceback.format_exc())
         await bot.send(ev, "error")
+
+
+async def get_uid():
+    return None
