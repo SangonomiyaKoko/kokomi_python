@@ -43,6 +43,8 @@ async def main(bot: Bot, ev: MessageEvent, matchmsg: Message = CommandArg()):
         else:
             search_list = searchtag.split()
         command, search_list, qq_id = await select_command(search_list, qq_id)
+        if command == None:
+            await bot.send()
         msg = await command(search_list, bot, ev)
         if isinstance(msg, str):
             await bot.send(ev, msg)

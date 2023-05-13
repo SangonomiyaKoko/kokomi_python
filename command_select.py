@@ -47,7 +47,7 @@ first_command_list = [
     command(("info",), None,),
     command(("日历",), None,),
     command(("绑定列表",), None,),
-    command(("ship",), wws_ship.get_wws_ship,),
+    command(("ship",), None,),
     command(("ship.rank",), None,),
     command(("rank", "recent",), None,),
     command(("recent",), None,),
